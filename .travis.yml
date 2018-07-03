@@ -1,14 +1,13 @@
 language: clojure
 dist: trusty
 sudo: false
-lein:
-  - 2.7.1
-  - 2.8.1
+lein: 2.8.1
 before_script:
   - psql -U postgres -f provision_example_database.sql
 script: lein with-profile test midje
 jdk:
   - oraclejdk8
+  - oraclejdk9
 services:
   - postgresql
 cache:
